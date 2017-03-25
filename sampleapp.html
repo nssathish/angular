@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Countries and Locale!</title>
+	</head>
+	<body>
+		<div ng-app="" ng-init="countries = [{locale:'en-US',name:'United States'}, {locale:'en-GB',name:'United Kindom'}, {locale:'en-FR',name:'France'}]">
+			<p>Name: <input type=text ng-model="name"></input></p>
+			<p>Hello <span ng-bind="name"></span>!</p>
+			<p>List of countries with locale:</p>
+			<ol>
+				<li ng-repeat="hash in countries">
+					{{'Country: ' + hash.name + ' locale: ' + hash.locale }}
+				</li>
+			</ol>
+		</div>
+	</body>
+	<script src="/Users/suchithradhanaraj/angularjs/angular.js"></script>
+</html>
