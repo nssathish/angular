@@ -4,11 +4,11 @@
 		<script src='/Users/suchithradhanaraj/angularjs/angular.js'></script>
 	</head>
 	<body>
-		<div ng-app="" ng-init="quantity=1; cost=30; students = {firstname: 'suchithra', lastname: 'dhanaraj', rollno:100}; marks=[199,198,197]">
-			<p>Hello {{students.firstname + ' ' + students.lastname}} </p>
-			<p>Expense on books: {{quantity * cost}} </p>
-			<p>Roll no: {{students.rollno}} </p>
-			<p ng-repeat="subjectmark in marks">{{subjectmark}}</p>
+		<div ng-app="expressions" ng-init="quantity=1; cost=30; students = {firstname: 'suchithra', lastname: 'dhanaraj', rollno:100}; marks=[199,198,197]">
+			<p>Hello {{expressions.students.firstname + ' ' + expressions.students.lastname}} </p>
+			<p>Expense on books: {{expressions.quantity * expressions.cost}} </p>
+			<p>Roll no: {{expressions.students.rollno}} </p>
+			<p ng-repeat="subjectmark in expressions.marks">{{subjectmark}}</p>
 		</div>
 	</body>
 </html>
