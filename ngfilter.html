@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Angie filter(s)</title>
+		<script src='angular.js'></script>
+	</head>
+	<body>
+		<div ng-app="" ng-init="countries: ['India','tamil nadu','natherlands']">
+			<p>Enter the firstname: <input type="text" ng-model="firstname"></input></p>
+			<p>Enter the lastname: <input type="text" ng-model="lastname"></input></p>
+			<p>Enter the amount to transfer: <input type="number" ng-model="money"></input></p>
+			<p>Welcome {{firstname + ' ' + lastname | uppercase}}!! </p>
+			<p>Welcome {{firstname + ' ' + lastname | lowercase}}!! </p>
+			<p>Amount to be transferred: {{money | currency}} </p>
+			<p ng-repeat="country in countries">{{country}}</p>
+		</div>
+	</body>
+</html>
