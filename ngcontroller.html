@@ -1,7 +1,7 @@
 <html>
 		<head>
 			<title>Angular controller</title>
-			<script src='/Users/suchithradhanaraj/angularjs/angular.js'></script>
+			<script src='angular.js'></script>
 		</head>
 		<body>
 			<h1>Angular JS Controller</h1>
@@ -14,8 +14,10 @@
 				var newngcontroller = angular.module("ngcontroller",[]);
 				newngcontroller.controller('newController', function($scope) {
 					   $scope.student = {
-							firstname: 'Suchithra',
-							lastname: 'Dhanaraj',
+							//firstname: 'Suchithra',
+							//lastname: 'Dhanaraj',
+							firstname: '',
+							lastname: '',
 							fullname: function () {
 								var studobj = $scope.student;
 								return studobj.firstname + " " + studobj.lastname;
