@@ -5,14 +5,37 @@
 		<script src='angular.js'></script>
 	</head>
 	<body>
-		<div ng-app="" ng-init="countries: ['India','tamil nadu','natherlands']">
-			<p>Enter the firstname: <input type="text" ng-model="firstname"></input></p>
-			<p>Enter the lastname: <input type="text" ng-model="lastname"></input></p>
+		<div ng-app="filterApp" ng-controller="filterController" ng-init="countries=['India','tamil nadu','natherlands']">
+			<p>Enter the firstname: <input type="text" ng-model="student.firstname"></input></p>
+			<p>Enter the lastname: <input type="text" ng-model="student.lastname"></input></p>
 			<p>Enter the amount to transfer: <input type="number" ng-model="money"></input></p>
-			<p>Welcome {{firstname + ' ' + lastname | uppercase}}!! </p>
+			<!-- <p>Welcome {{firstname + ' ' + lastname | uppercase}}!! </p>
 			<p>Welcome {{firstname + ' ' + lastname | lowercase}}!! </p>
+			-->
+			<p>Welcome {{student.fullname() | uppercase}}</p>
+			<p>Welcome {{student.fullname() | lowercase}}</p>
 			<p>Amount to be transferred: {{money | currency}} </p>
-			<p ng-repeat="country in countries">{{country}}</p>
+			<p ng-repeat="country in countries">{{'country name: ' + country}}</p>
+			<p>Enter subject name: <input type='text' ng-model='subjectInfo'></input></p>
+			<p ng-repeat="subject in student.subjectmarks | filter: subjectInfo | orderBy: 'marks'">{{'Subject name: ' + subject.name + ' Subject marks: ' + subject.marks}}</p>
 		</div>
+		<script>
+			var newfilterController = angular.module("filterApp",[]);
+			newfilterController.controller('filterController', function($scope) {
+				$scope.student = {
+					firstname: '',
+					lastname: '',
+					fullname: function () {
+						var studobj = $scope.student;
+						return studobj.firstname + " " + studobj.lastname;
+					},
+					subjectmarks: [
+						{ name: 'Physics', marks: '90' },
+						{ name: 'Chemistry', marks: '80' },
+						{ name: 'Mathematics', marks: '70' },
+					],
+				};
+			});
+		</script>
 	</body>
 </html>
